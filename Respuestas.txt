@@ -1,0 +1,14 @@
+ ¿Puede ver el archivo tp2_1_2.c? ¿Por qué?
+
+* No puedo ver el archivo porque pertenece a la rama Opcion_2.
+
+En VSCode vuelva al “Source Control” ¿Qué diferencias nota?
+
+* La diferencia que noto es que la "rama" amarilla se movio a un 
+costado y cuando agregué el archivo .txt salió de la "rama" azul.
+
+En VSCode vuelva al “Source Control” vea los cambios, ¿Qué nota?
+
+* Luego del merge, la "rama" amarilla se une a la "rama" azul, y ahora
+el archivo "tp2_1_2" es visible desde todas las ramas.
+
