@@ -10,7 +10,7 @@ struct compu {
     char *tipo_cpu; // Tipo de procesador (apuntador a cadena de caracteres)
 }typedef computadora;
 void iniciarComputadoras(computadora *computadoras); /* inicializo las computadoras con valores aleatorios */
-char tipos[6][10] = {"Intel", "AMD", "Celeron", "Athlon", "Core", "Pentium"};
+void liberarMemoria(computadora *computadoras); // Libera la memoria asignada para el tipo de CPU de cada computadora
     
 
 int main(){
@@ -36,5 +36,12 @@ void iniciarComputadoras(computadora *computadoras){
             exit(1); // Termina el programa si no se pudo asignar memoria
         }
         strcpy(computadoras[i].tipo_cpu, tipos[cpu_random]); // Copia el tipo de CPU a la estructura  
+    }
+}
+
+void liberarMemoria(computadora *computadoras)
+{
+    for(int i = 0; i < MAX; i++){
+        free(computadoras[i].tipo_cpu);
     }
 }
