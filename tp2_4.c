@@ -9,6 +9,7 @@ struct compu {
     int cantidad_nucleos; // Cantidad de núcleos (valor entre 1 y 8)
     char *tipo_cpu; // Tipo de procesador (apuntador a cadena de caracteres)
 }typedef computadora;
+
 void iniciarComputadoras(computadora *computadoras); /* inicializo las computadoras con valores aleatorios */
 void liberarMemoria(computadora *computadoras); // Libera la memoria asignada para el tipo de CPU de cada computadora
 void mostrarComputadora(computadora pc); /* funcion que muestra una computadora */
@@ -87,4 +88,13 @@ void liberarMemoria(computadora *computadoras)
     for(int i = 0; i < MAX; i++){
         free(computadoras[i].tipo_cpu);
     }
+}
+
+void mostrarComputadora(computadora pc)
+{
+    // Muestra los detalles de una computadora
+    printf("Velocidad: %d GHz\n", pc.velocidad);
+    printf("A%co: %d\n", 164, pc.anio);
+    printf("Cantidad de nucleos: %d\n", pc.cantidad_nucleos);
+    printf("Tipo de CPU: %s\n", pc.tipo_cpu);
 }
