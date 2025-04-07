@@ -11,13 +11,56 @@ struct compu {
 }typedef computadora;
 void iniciarComputadoras(computadora *computadoras); /* inicializo las computadoras con valores aleatorios */
 void liberarMemoria(computadora *computadoras); // Libera la memoria asignada para el tipo de CPU de cada computadora
-    
+void mostrarComputadora(computadora pc); /* funcion que muestra una computadora */
+void listarComputadoras(computadora lista[MAX], int cantidad); /* funcion que muestra todas las computadoras */
+void mostrarMasVieja(computadora lista[MAX], int cantidad); /* funcion que muestra la computadora mas vieja */
+void mostrarMasVeloz(computadora lista[MAX], int cantidad); /* funcion que muestra la computadora mas rapida */
 
 int main(){
     // Inicialización de la semilla para la generación de números aleatorios
     srand(time(NULL));
     computadora computadoras[MAX], *puntero_pc = computadoras; // Arreglo de computadoras y puntero a la primera computadora
     iniciarComputadoras(puntero_pc); // Llama a la función para inicializar las computadoras
+    int opcion = 0; // Variable para almacenar la opción del menú
+    do
+    {
+        printf("\n\t\t\tMENU DE FUNCIONES\n");
+        printf("\t\t\t-----------------\n");
+        printf("\t1. Mostrar todas las computadoras\n");
+        printf("\t2. Mostrar la computadora mas vieja\n");
+        printf("\t3. Mostrar la computadora mas veloz\n");
+        printf("\t4. SALIR\n");
+        fflush(stdin); // Limpia el buffer de entrada
+        scanf("%d", &opcion); // Lee la opción del usuario
+        switch (opcion)
+        {
+        case 1:
+            listarComputadoras(puntero_pc, MAX); // Llama a la función para listar todas las computadoras
+            break;
+        
+        case 2:
+            mostrarMasVieja(puntero_pc, MAX); // Llama a la función para mostrar la computadora mas vieja
+            break;
+        
+        case 3:
+            mostrarMasVeloz(puntero_pc, MAX); // Llama a la función para mostrar la computadora mas veloz
+            break;
+
+        default:
+            break;
+        }
+        if (opcion == 4) // Si la opción es 4, se sale del menú
+        {
+            printf("Saliendo del programa...\n");
+            liberarMemoria(puntero_pc); // Llama a la función para liberar la memoria asignada
+        }
+        else if (opcion < 1 || opcion > 4) // Si la opción no es valida, se muestra un mensaje de error
+        {
+            printf("Opción no valida. Por favor, elija una opción entre 1 y 4.\n");
+        }
+        printf("\n"); // Salto de línea 
+        
+    } while (opcion != 4); // Repite el menú hasta que la opción sea 4 (salir)
 
     return 0;
 }
