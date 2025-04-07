@@ -110,3 +110,18 @@ void listarComputadoras(computadora lista[MAX], int cantidad)
         printf("\n");
     }
 }
+
+void mostrarMasVieja(computadora lista[MAX], int cantidad)
+{
+    int anio_mas_viejo = lista[0].anio;
+    int indice_mas_viejo = 0;
+    for(int i = 1; i < cantidad; i++){
+        if(lista[i].anio < anio_mas_viejo){
+            anio_mas_viejo = lista[i].anio;
+            indice_mas_viejo = i;
+        }
+    }
+    printf("La computadora mas vieja es:\n");
+    mostrarComputadora(lista[indice_mas_viejo]);
+    printf("\n");
+}
