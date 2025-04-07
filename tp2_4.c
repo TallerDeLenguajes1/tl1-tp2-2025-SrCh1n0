@@ -125,3 +125,21 @@ void mostrarMasVieja(computadora lista[MAX], int cantidad)
     mostrarComputadora(lista[indice_mas_viejo]);
     printf("\n");
 }
+
+void mostrarMasVeloz(computadora lista[MAX], int cantidad)
+{
+    // Muestra la computadora mas veloz
+    int velocidad_mas_alta = lista[0].velocidad;
+    int indice_mas_veloz = 0;
+    
+    for(int i = 1; i < cantidad; i++){
+        if(lista[i].velocidad > velocidad_mas_alta){
+            velocidad_mas_alta = lista[i].velocidad;
+            indice_mas_veloz = i;
+        }
+    }
+    
+    printf("La computadora mas veloz es:\n");
+    mostrarComputadora(lista[indice_mas_veloz]);
+    printf("\n");
+}
