@@ -98,3 +98,15 @@ void mostrarComputadora(computadora pc)
     printf("Cantidad de nucleos: %d\n", pc.cantidad_nucleos);
     printf("Tipo de CPU: %s\n", pc.tipo_cpu);
 }
+
+void listarComputadoras(computadora lista[MAX], int cantidad)
+{
+    // Muestra todas las computadoras en la lista
+    for(int i = 0; i < cantidad; i++){
+        printf("\tComputadora %d:\n", i + 1);
+        printf("\tDetalles:\n");
+        printf("\t----------------\n");
+        mostrarComputadora(lista[i]);
+        printf("\n");
+    }
+}
